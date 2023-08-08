@@ -23,8 +23,9 @@ namespace BecomingAnArchmage.Source.Infrastructure.GameFsm
         public void Enter()
         {
             Object.DontDestroyOnLoad(_appLifetimeScope);
-
             InitializeServices(_allServices);
+            
+            _gameStateMachine.SwitchState(GameState.LoadGameState);
         }
 
         private void InitializeServices(IReadOnlyList<IInitializableService> services)

@@ -17,6 +17,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.GameFsm
             return gameState switch
             {
                 GameState.Boot => _instantiator.Resolve<BootState>(),
+                GameState.LoadGameState => _instantiator.Resolve<LoadGameState>(),
                 _ => throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null)
             };
         }

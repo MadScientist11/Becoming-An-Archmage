@@ -6,6 +6,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.GameFsm
     public enum GameState
     {
         Boot = 0,
+        LoadGameState = 1,
     }
 
     public class GameStateMachine
@@ -21,7 +22,6 @@ namespace BecomingAnArchmage.Source.Infrastructure.GameFsm
         
         public void SwitchState(GameState nextState)
         {
-
             if (!_states.TryGetValue(nextState, out var _))
             {
                 _states.Add(nextState, _statesFactory.CreateState(nextState));
