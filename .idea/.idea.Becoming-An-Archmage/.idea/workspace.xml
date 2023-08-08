@@ -24,9 +24,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Source/Gameplay/World.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/EntryPoints/Boot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/Becoming-An-Archmage/Assets/Game/Source/View.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/UnityProjects/Becoming-An-Archmage/Assets/Game/Source/View.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Annotations/InjectAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2Th9hSaaM37f2J3CKnnMj3fQZvZ" />
@@ -100,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691484566945</updated>
-      <workItem from="1691484571539" duration="2983000" />
+      <workItem from="1691484571539" duration="4051000" />
     </task>
     <task id="LOCAL-00001" summary="Small test">
       <option name="closed" value="true" />
