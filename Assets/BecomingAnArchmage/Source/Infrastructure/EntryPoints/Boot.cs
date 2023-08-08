@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using BecomingAnArchmage.Source.Infrastructure.Scopes;
+using BecomingAnArchmage.Source.Infrastructure.GameFsm;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using UnityEngine;
 using VContainer;
@@ -8,30 +8,16 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
 {
     public class Boot : MonoBehaviour
     {
-        [SerializeField] private AppLifetimeScope _appLifetimeScope;
-
         private IReadOnlyList<IInitializableService> _services;
+        private GameStateMachine _gameStateMachine;
 
         [Inject]
-        public void Construct(IReadOnlyList<IInitializableService> allServices)
+        public void Construct(GameStateMachine gameStateMachine)
         {
-            _services = allServices;
+            _gameStateMachine = gameStateMachine;
         }
 
-        private void Awake() =>
-            DontDestroyOnLoad(_appLifetimeScope);
-
-        private void Start()
-        {
-            InitializeServices(_services);
-        }
-
-        private void InitializeServices(IReadOnlyList<IInitializableService> services)
-        {
-            foreach (IInitializableService service in services)
-            {
-                service.Initialize();
-            }
-        }
+        private void Awake() => 
+            _gameStateMachine.SwitchState(GameState.Boot);
     }
 }
