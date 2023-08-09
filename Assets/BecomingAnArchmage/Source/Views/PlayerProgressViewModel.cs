@@ -1,3 +1,4 @@
+using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using UnityEngine;
 using UnityMvvmToolkit.Core;
@@ -8,19 +9,24 @@ using VContainer.Unity;
 public class PlayerProgressViewModel : IBindingContext, ITickable
 {
     
-    public readonly IProperty<int> Age;
+    public IProperty<string> Age { get; }
+    public IProperty<string> Days { get; }
 
     private ITimeService _timeService;
+    private IPlayerLifeCycleService _playerLifeCycleService;
 
-    public PlayerProgressViewModel(ITimeService timeService)
+    public PlayerProgressViewModel(IPlayerLifeCycleService playerLifeCycleService)
     {
-        _timeService = timeService;
-        Age = new Property<int>(0);
+        _playerLifeCycleService = playerLifeCycleService;
+        Age = new Property<string>($"Age: {playerLifeCycleService.Age}");
+        Days = new Property<string>($"Days: {playerLifeCycleService.Days}");
     }
+
 
     public void Tick()
     {
-        Age.Value = (int)(100f*_timeService.DeltaTime);
-        Debug.Log(Age.Value);
+        Age.Value = $"Age: {(int)_playerLifeCycleService.Age}";
+        Days.Value = $"Days: {(int)_playerLifeCycleService.Days % 365}";
+        
     }
 }

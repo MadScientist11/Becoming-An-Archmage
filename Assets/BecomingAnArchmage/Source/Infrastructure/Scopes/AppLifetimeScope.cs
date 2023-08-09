@@ -1,3 +1,4 @@
+using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.GameFsm;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using BecomingAnArchmage.Source.Views;
@@ -19,10 +20,11 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
             RegisterViewModels(builder);
         }
 
-        private static void RegisterServices(IContainerBuilder builder)
+        private void RegisterServices(IContainerBuilder builder)
         {
             builder.Register<SceneLoader>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<TimeService>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<PlayerLifeCycleService>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
         private void RegisterGameStateMachine(IContainerBuilder builder)

@@ -6,7 +6,10 @@ namespace BecomingAnArchmage.Source.Views
     public class MainScreenViewModel : IBindingContext
     {
         [Observable("Age")]
-        private IReadOnlyProperty<int> _age => _playerProgressViewModel.Age;
+        private IReadOnlyProperty<string> _age => _playerProgressViewModel.Age;
+        
+        [Observable("Days")]
+        private IReadOnlyProperty<string> _days => _playerProgressViewModel.Days;
         
         [Observable("Test")]
         private IReadOnlyProperty<int> _test => _progressionPanelsViewModel.Test;
