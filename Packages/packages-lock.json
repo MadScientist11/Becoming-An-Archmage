@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.chebanovdd.unitymvvmtoolkit": {
+      "version": "https://github.com/ChebanovDD/UnityMvvmToolkit.git?path=src/UnityMvvmToolkit.UnityPackage/Assets/Plugins/UnityMvvmToolkit",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a1058b4b0d6f6a4f9975027622e9e7fb58c7a168"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.3",
       "depth": 1,

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.chebanovdd.unitymvvmtoolkit": "https://github.com/ChebanovDD/UnityMvvmToolkit.git?path=src/UnityMvvmToolkit.UnityPackage/Assets/Plugins/UnityMvvmToolkit",
     "com.unity.addressables": "1.21.14",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.2d": "2.0.0",
