@@ -21,6 +21,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
             builder.Register<TestViewModel>(Lifetime.Singleton).AsSelf().As<ITickable>();
             builder.Register<PlayerProgressViewModel>(Lifetime.Singleton).AsSelf().As<ITickable>();
             builder.Register<ProgressionPanelsViewModel>(Lifetime.Singleton).AsSelf();
+            builder.Register<MainScreenViewModel>(Lifetime.Singleton).AsSelf();
             builder.Register<TimeService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<IValueConverter, FloatToStrConverter>(Lifetime.Singleton);
             builder.Register<IValueConverter, IntToStrConverter>(Lifetime.Singleton);

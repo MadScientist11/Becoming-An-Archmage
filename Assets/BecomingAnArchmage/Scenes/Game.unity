@@ -351,9 +351,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1430716154}
   - component: {fileID: 1430716153}
-  - component: {fileID: 1430716156}
+  - component: {fileID: 1430716155}
   m_Layer: 5
-  m_Name: TestScreen
+  m_Name: MainScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1430716156
+--- !u!114 &1430716155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1430716152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5f33b81ec5b5a4e8e123f5c8c6a544, type: 3}
+  m_Script: {fileID: 11500000, guid: c6e5e58262688fc40bea5e0d4a45d2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

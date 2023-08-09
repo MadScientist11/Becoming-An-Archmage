@@ -15,13 +15,12 @@ public class ProgressionPanelsView : BaseView<ProgressionPanelsViewModel>
 public class ProgressionPanelsViewModel : IBindingContext
 {
         
-    [Observable("Test")]
-    private readonly IProperty<int> _test;
+    public readonly IProperty<int> Test;
 
     private ITimeService _timeService;
 
     public ProgressionPanelsViewModel()
     {
-        _test = new Property<int>(0);
+        Test = new Property<int>(100);
     }
 }
