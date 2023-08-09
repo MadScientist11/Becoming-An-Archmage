@@ -351,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430716154}
   - component: {fileID: 1430716153}
-  - component: {fileID: 1430716155}
+  - component: {fileID: 1430716156}
   m_Layer: 5
   m_Name: TestScreen
   m_TagString: Untagged
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: d80969386d3631c4daa989ef213dd484, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 32727b4db02ae644d8a6a18611e26eb8, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9c840b5ef8c7a074eaa9caf6d863a13f, type: 3}
   m_SortingOrder: 0
 --- !u!4 &1430716154
 Transform:
@@ -390,7 +390,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1430716155
+--- !u!114 &1430716156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1430716152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a76e2728e5734409a860f4681d69b9, type: 3}
+  m_Script: {fileID: 11500000, guid: fe5f33b81ec5b5a4e8e123f5c8c6a544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

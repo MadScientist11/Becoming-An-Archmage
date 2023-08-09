@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/ProgressTab.uss?fileID=7433441132597879392&amp;guid=ec8aa08044024af49b327de967077380&amp;type=3#ProgressTab" />
+    <ui:VisualElement name="PlayerProgressTab" class="progress-tab" style="flex-grow: 1; height: auto; position: relative; left: auto;">
+        <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 10px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+            <ui:VisualElement name="AgeDayContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 15%;">
+                <ui:Label tabindex="-1" text="Age: 25" display-tooltip-when-elided="true" name="AgeLabel" class="text" style="margin-right: 0; flex-grow: 1; -unity-text-align: middle-right;" />
+                <ui:Label tabindex="-1" text="Day: 100" display-tooltip-when-elided="true" name="DayLabel" class="text" style="flex-grow: 12;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

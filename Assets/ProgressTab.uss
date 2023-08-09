@@ -1,0 +1,10 @@
+.progress-tab {
+    background-color: rgb(27, 27, 26);
+}
+
+.text {
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 14px;
+    -unity-text-align: middle-left;
+}
