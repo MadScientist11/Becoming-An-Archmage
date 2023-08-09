@@ -1,5 +1,6 @@
 using BecomingAnArchmage.Source.Infrastructure.GameFsm;
 using BecomingAnArchmage.Source.Infrastructure.Services;
+using BecomingAnArchmage.Source.Views;
 using VContainer;
 using VContainer.Unity;
 
@@ -14,6 +15,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
             builder.Register<BootState>(Lifetime.Singleton).AsSelf();
             builder.Register<LoadGameState>(Lifetime.Singleton).AsSelf();
             builder.Register<SceneLoader>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<TestViewModel>(Lifetime.Singleton).AsSelf();
         }
     }
 }

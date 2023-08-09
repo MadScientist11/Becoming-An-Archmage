@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(0, 0, 0); justify-content: flex-start;">
+        <UnityMvvmToolkit.UITK.BindableUIElements.BindableLabel binding-text-path="Date" tabindex="-1" text="Label" display-tooltip-when-elided="true" style="flex-grow: 1; align-items: stretch; justify-content: space-around; -unity-text-align: middle-center; font-size: 100px; -unity-font-style: bold; -unity-text-outline-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>
