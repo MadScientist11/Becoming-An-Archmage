@@ -17,8 +17,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library
+          
       - name: Build (Linux64, mono)
-      
         uses: Cysharp/Actions/.github/actions/unity-builder@main
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
