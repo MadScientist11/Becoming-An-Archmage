@@ -8,20 +8,6 @@ on:
     branches:
       - "master"
 
-jobs:
-  build-dotnet:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: Cysharp/Actions/.github/actions/setup-dotnet@main
-        with:
-          dotnet-version: |
-            3.1.x
-            6.0.x
-      - run: dotnet build -c Debug
-      - run: dotnet test -c Debug
-
   build-unity:
     strategy:
       matrix:
@@ -41,5 +27,8 @@ jobs:
           targetPlatform: StandaloneLinux64
           customParameters: /headless /ScriptBackend mono
           
-    
+    - uses: actions/upload-artifact@v2
+    with:
+        name: Build
+        path: build
       
