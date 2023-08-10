@@ -1,0 +1,27 @@
+name: build-debug
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  dotnet-build:
+    strategy:
+      matrix:
+        unity: ["2022.3.5f1"]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      # execute scripts/Export Package
+      # /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -executeMethod PackageExporter.Export
+      - name: Build Unity (.unitypacakge)
+        uses: Cysharp/Actions/.github/actions/unity-builder@main
+        with:
+          unityVersion: "${{ matrix.unity }}"
+          targetPlatform: StandaloneLinux64
+          versioning: None
