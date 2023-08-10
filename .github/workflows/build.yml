@@ -24,17 +24,14 @@ jobs:
           key: Library
           
       - name: Build (Linux64, mono)
-        uses: Cysharp/Actions/.github/actions/unity-builder@main
+      - uses: game-ci/unity-builder@v2
         env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          unityVersion: ${{ matrix.unity }}
-          targetPlatform: StandaloneLinux64
-          customParameters: /headless /ScriptBackend mono
-          
+           targetPlatform: StandaloneLinux64         
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifacts
-          path: ./Assets
+          name: Build
+          path: build
