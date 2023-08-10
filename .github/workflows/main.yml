@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: Build my project ✨
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     steps:
       # Checkout
       - name: Checkout repository
@@ -37,7 +37,7 @@ jobs:
         UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
       with:
-        targetPlatform: StandaloneWindows64
+        targetPlatform: StandaloneLinux64
     
     # Output
     - uses: actions/upload-artifact@v3
