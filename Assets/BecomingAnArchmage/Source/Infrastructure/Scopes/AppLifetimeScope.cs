@@ -1,3 +1,4 @@
+using System;
 using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.GameFsm;
 using BecomingAnArchmage.Source.Infrastructure.Services;
@@ -44,7 +45,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
         private void RegisterViewModels(IContainerBuilder builder)
         {
             builder.Register<TestViewModel>(Lifetime.Singleton).AsSelf().As<ITickable>();
-            builder.Register<PlayerProgressViewModel>(Lifetime.Singleton).AsSelf().As<ITickable>();
+            builder.Register<PlayerProgressViewModel>(Lifetime.Singleton).AsSelf().As<IDisposable>();
             builder.Register<ProgressionPanelsViewModel>(Lifetime.Singleton).AsSelf();
             builder.Register<MainScreenViewModel>(Lifetime.Singleton).AsSelf();
         }

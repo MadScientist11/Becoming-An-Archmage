@@ -1,3 +1,4 @@
+using System;
 using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using UnityEngine;
@@ -6,27 +7,50 @@ using UnityMvvmToolkit.Core.Attributes;
 using UnityMvvmToolkit.Core.Interfaces;
 using VContainer.Unity;
 
-public class PlayerProgressViewModel : IBindingContext, ITickable
+public class PlayerProgressViewModel : IBindingContext, IDisposable
 {
-    
-    public IProperty<string> Age { get; }
-    public IProperty<string> Days { get; }
+    [Observable] private readonly IProperty<string> _age;
+    [Observable] private readonly IProperty<string> _days;
 
     private ITimeService _timeService;
-    private IPlayerLifeCycleService _playerLifeCycleService;
+    private readonly IPlayerLifeCycleService _playerLifeCycleService;
 
     public PlayerProgressViewModel(IPlayerLifeCycleService playerLifeCycleService)
     {
         _playerLifeCycleService = playerLifeCycleService;
-        Age = new Property<string>($"Age: {playerLifeCycleService.Age}");
-        Days = new Property<string>($"Days: {playerLifeCycleService.Days}");
-    }
-
-
-    public void Tick()
-    {
-        Age.Value = $"Age: {(int)_playerLifeCycleService.Age}";
-        Days.Value = $"Days: {(int)_playerLifeCycleService.Days % 365}";
+        _age = new Property<string>(GetAgeString(playerLifeCycleService.Age));
+        _days = new Property<string>(GetDaysString(playerLifeCycleService.Days));
         
+        _playerLifeCycleService.AgeChanged += OnAgeChanged;
+        _playerLifeCycleService.DaysChanged += OnDaysChanged;
     }
+
+    public void Dispose()
+    {
+        _playerLifeCycleService.AgeChanged -= OnAgeChanged;
+        _playerLifeCycleService.DaysChanged -= OnDaysChanged;
+    }
+
+    private void OnAgeChanged(object sender, int age)
+    {
+        _age.Value = GetAgeString(age);
+    }
+
+    private void OnDaysChanged(object sender, int days)
+    {
+        _days.Value = GetDaysString(days);
+    }
+
+    private string GetAgeString(int age)
+    {
+        return $"Age: {age}";
+    }
+
+    private string GetDaysString(int days)
+    {
+        return $"Days: {days % 365}";
+    }
+
+
+  
 }

@@ -1,3 +1,4 @@
+using UnityMvvmToolkit.Core;
 using UnityMvvmToolkit.Core.Attributes;
 using UnityMvvmToolkit.Core.Interfaces;
 
@@ -5,25 +6,14 @@ namespace BecomingAnArchmage.Source.Views
 {
     public class MainScreenViewModel : IBindingContext
     {
-        [Observable("Age")]
-        private IReadOnlyProperty<string> _age => _playerProgressViewModel.Age;
-        
-        [Observable("Days")]
-        private IReadOnlyProperty<string> _days => _playerProgressViewModel.Days;
-        
-        [Observable("Test")]
-        private IReadOnlyProperty<int> _test => _progressionPanelsViewModel.Test;
-
-        private PlayerProgressViewModel _playerProgressViewModel;
-        private ProgressionPanelsViewModel _progressionPanelsViewModel;
+        [Observable] private readonly IReadOnlyProperty<ProgressionPanelsViewModel> _progression;
+        [Observable] private readonly IReadOnlyProperty<PlayerProgressViewModel> _playerProgress;
 
         public MainScreenViewModel(PlayerProgressViewModel playerProgressViewModel,
-            ProgressionPanelsViewModel progressionPanelsViewModel)
+            ProgressionPanelsViewModel progressionViewModel)
         {
-            _progressionPanelsViewModel = progressionPanelsViewModel;
-            _playerProgressViewModel = playerProgressViewModel;
+            _progression = new ReadOnlyProperty<ProgressionPanelsViewModel>(progressionViewModel);
+            _playerProgress = new ReadOnlyProperty<PlayerProgressViewModel>(playerProgressViewModel);
         }
-        
-        
     }
 }
