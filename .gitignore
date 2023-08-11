@@ -21,6 +21,7 @@
 # Uncomment this line if you wish to ignore the asset store tools plugin
 /[Aa]ssets/Fullscreen*
 Unity_v2019.2.11f1.alf
+/[Aa]ssets/SeparateViews*
 
 # Ignore temporaries from GameCI
 /[Aa]rtifacts/
