@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Task" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: 35px; flex-direction: row;">
+        <ui:Label tabindex="-1" text="Black Hole" display-tooltip-when-elided="true" class="text" style="position: absolute; top: 5px; left: 12px; height: 22px; width: 94px;" />
+        <ui:ProgressBar value="22" title="my-progress" style="height: 25px; width: 146px; position: absolute; top: 7px; left: 155px;" />
+    </ui:VisualElement>
+</ui:UXML>

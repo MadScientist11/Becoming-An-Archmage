@@ -216,6 +216,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 523486561}
+  _taskItemAsset: {fileID: 9197481963319205126, guid: 21db6d2702843b549b5649050f0b6efb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

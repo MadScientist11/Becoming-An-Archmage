@@ -16,7 +16,7 @@
             <ui:VisualElement name="ProgressionPanels" style="flex-grow: 0; background-color: rgb(27, 27, 26); flex-shrink: 0; position: absolute; top: 16px; left: 589px; justify-content: flex-start; width: 1092px; height: 800px; align-items: stretch;">
                 <ui:VisualElement name="Tabs" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; height: 10%;" />
                 <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                    <ui:ListView focusable="true" />
+                    <BecomingAnArchmage.Source.Views.BindableTaskScrollView binding-items-source-path="TaskItems" binding-item-template-path="Task" scroll-deceleration-rate="0,135" elasticity="0.05" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" touch-scroll-type="Elastic"/>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="EmptySpace" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-shrink: 0;" />

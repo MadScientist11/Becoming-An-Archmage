@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.GameFsm;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using BecomingAnArchmage.Source.Views;
+using UnityEngine;
+using UnityEngine.UIElements;
 using UnityMvvmToolkit.Core.Converters.PropertyValueConverters;
 using UnityMvvmToolkit.Core.Interfaces;
 using VContainer;
@@ -12,6 +15,8 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
 {
     public class AppLifetimeScope : LifetimeScope
     {
+        [SerializeField] private VisualTreeAsset _taskItemAsset;
+        
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterGameStateMachine(builder);
@@ -19,6 +24,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
             
             RegisterValueConverters(builder);
             RegisterViewModels(builder);
+            RegisterCollectionItemTemplates(builder);
         }
 
         private void RegisterServices(IContainerBuilder builder)
@@ -47,7 +53,19 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
             builder.Register<TestViewModel>(Lifetime.Singleton).AsSelf().As<ITickable>();
             builder.Register<PlayerProgressViewModel>(Lifetime.Singleton).AsSelf().As<IDisposable>();
             builder.Register<ProgressionPanelsViewModel>(Lifetime.Singleton).AsSelf();
-            builder.Register<MainScreenViewModel>(Lifetime.Singleton).AsSelf();
+            builder.Register<MainScreenViewModel>(Lifetime.Singleton).AsSelf().As<IInitializable>();
+            
+            builder.Register<TaskItemViewModel>(Lifetime.Singleton).AsSelf();
+
+        }
+        
+        private void RegisterCollectionItemTemplates(IContainerBuilder builder)
+        {
+            Dictionary<Type, object> templates =  new Dictionary<Type, object>
+            {
+                { typeof(TaskItemViewModel), _taskItemAsset }
+            };
+            builder.Register<ICollectionItemProvider>(_ => new CollectionItemsProvider(templates), Lifetime.Singleton);
         }
     }
 }

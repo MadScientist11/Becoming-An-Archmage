@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e63f3288-aa80-4b50-a225-bb16183a7819" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Becoming-An-Archmage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Becoming-An-Archmage/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Gameplay/Services/PlayerLifeCycleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Gameplay/Services/PlayerLifeCycleService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Scenes/StartUp.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Scenes/StartUp.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/MVVM/BaseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/MVVM/BaseView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Scopes/AppLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Scopes/AppLifetimeScope.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/MainScreenViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/MainScreenViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/PlayerProgressViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/PlayerProgressViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/UI/MainScreen.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/UI/MainScreen.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ProgressTab.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProgressTab.uss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +38,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/MainScreenView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Views/ProgressionPanelsView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/Core/BindingContextObjectProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/BindableLabel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/BindableListView.T.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/BindableScrollView.T.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/Uxmls/BindableListView.T.Uxml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/Uxmls/BindableListView.TItem.TCollection.Uxml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Annotations/ITickable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Annotations/InjectAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Internal/ReflectionInjector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/RegistrationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Unity/LifetimeScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Unity/PlayerLoopRunner.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -52,7 +61,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -115,7 +124,9 @@
       <updated>1691484566945</updated>
       <workItem from="1691484571539" duration="6485000" />
       <workItem from="1691573107134" duration="10992000" />
-      <workItem from="1691735663819" duration="1485000" />
+      <workItem from="1691735669706" duration="4635000" />
+      <workItem from="1691833711033" duration="2771000" />
+      <workItem from="1692191038905" duration="4958000" />
     </task>
     <task id="LOCAL-00001" summary="Small test">
       <option name="closed" value="true" />
@@ -134,6 +145,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Small test" />

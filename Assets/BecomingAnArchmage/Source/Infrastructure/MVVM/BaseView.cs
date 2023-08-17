@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BecomingAnArchmage.Source.Infrastructure.Services;
 using UnityMvvmToolkit.Core.Interfaces;
 using UnityMvvmToolkit.UITK;
 using VContainer;
@@ -12,10 +13,12 @@ namespace BecomingAnArchmage.Source.Infrastructure.MVVM
     {
         private TBindingContext _viewModel;
         private IValueConverter[] _valueConverters;
+        private ICollectionItemProvider _collectionItemProvider;
 
         [Inject]
-        public void Construct(TBindingContext viewModel, IEnumerable<IValueConverter> valueConverters)
+        public void Construct(TBindingContext viewModel, IEnumerable<IValueConverter> valueConverters, ICollectionItemProvider collectionItemProvider)
         {
+            _collectionItemProvider = collectionItemProvider;
             _viewModel = viewModel;
             _valueConverters = valueConverters.ToArray();
         }
@@ -32,7 +35,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.MVVM
 
         protected override IReadOnlyDictionary<Type, object> GetCollectionItemTemplates()
         {
-            return null;
+            return _collectionItemProvider.CollectionItems;
         }
     }
 }
