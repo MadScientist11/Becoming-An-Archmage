@@ -1,5 +1,6 @@
 using System;
 using BecomingAnArchmage.Source.Infrastructure.Services;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -14,7 +15,7 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
         event EventHandler<int> DaysChanged;
     }
 
-    public class PlayerLifeCycleService : IPlayerLifeCycleService, IInitializable, ITickable, IDisposable
+    public class PlayerLifeCycleService : IPlayerLifeCycleService, IInitializableService, ITickable, IDisposable
     {
         private int _days;
         private int _age;
@@ -52,9 +53,10 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
             _timeService = timeService;
         }
 
-        public void Initialize()
+        public async UniTask Initialize()
         {
             DaysChanged += OnDaysChanged;
+            await UniTask.Delay(TimeSpan.FromSeconds(3));
         }
 
         public void Dispose()

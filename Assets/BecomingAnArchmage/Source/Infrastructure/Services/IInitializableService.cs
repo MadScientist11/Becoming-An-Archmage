@@ -1,7 +1,9 @@
+using Cysharp.Threading.Tasks;
+
 namespace BecomingAnArchmage.Source.Infrastructure.Services
 {
     public interface IInitializableService
     {
-        void Initialize();
+        UniTask Initialize();
     }
 }

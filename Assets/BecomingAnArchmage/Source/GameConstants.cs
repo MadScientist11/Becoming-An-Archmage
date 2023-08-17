@@ -2,9 +2,10 @@ namespace BecomingAnArchmage.Source
 {
     public static class GameConstants
     {
-        public static class AssetReferences
+        public static class AddressablesRefs
         {
-            public const string Game = "Game";
+            public const string LoadingScreenScene = "LoadingScreen";
+            public const string GameScene = "Game";
         }
     }
 }
