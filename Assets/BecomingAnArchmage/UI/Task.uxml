@@ -1,6 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="Task" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: 35px; flex-direction: row;">
-        <ui:Label tabindex="-1" text="Black Hole" display-tooltip-when-elided="true" class="text" style="position: absolute; top: 5px; left: 12px; height: 22px; width: 94px;" />
-        <ui:ProgressBar value="22" title="my-progress" style="height: 25px; width: 146px; position: absolute; top: 7px; left: 155px;" />
+    <Style src="project://database/Assets/BecomingAnArchmage/UI/CustomProgressBar.uss?fileID=7433441132597879392&amp;guid=185011950c012d04b87f1d21644ae972&amp;type=3#CustomProgressBar" />
+    <ui:VisualElement name="TaskContainer" style="flex-grow: 0; background-color: rgba(183, 183, 183, 0.61); flex-shrink: 0; height: 100px; flex-direction: row; margin-top: 0; margin-bottom: 0; justify-content: flex-start;">
+        <ui:ProgressBar value="22" title="Mana Control" style="height: 100%; flex-direction: column; background-color: rgba(166, 162, 162, 0); left: 30px; width: 342px;" />
+        <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 22px; -unity-font-style: bold; -unity-text-align: middle-center; width: 239px; height: 100%; left: 100px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label tabindex="-1" text="1000" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 22px; -unity-font-style: bold; -unity-text-align: middle-center; width: 334px; height: 100%; left: 143px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
     </ui:VisualElement>
 </ui:UXML>

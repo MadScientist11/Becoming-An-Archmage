@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/BecomingAnArchmage/UI/Common.uss?fileID=7433441132597879392&amp;guid=640ed085da43da74790c66c31554f1b4&amp;type=3#Common" />
     <Style src="project://database/Assets/ProgressTab.uss?fileID=7433441132597879392&amp;guid=ec8aa08044024af49b327de967077380&amp;type=3#ProgressTab" />
+    <Style src="project://database/Assets/BecomingAnArchmage/UI/CustomProgressBar.uss?fileID=7433441132597879392&amp;guid=185011950c012d04b87f1d21644ae972&amp;type=3#CustomProgressBar" />
     <ui:VisualElement name="Background" class="default-background" style="flex-grow: 1; flex-direction: column;">
         <ui:VisualElement name="Vertical" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-basis: 8%;" />
         <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
@@ -16,7 +17,7 @@
             <ui:VisualElement name="ProgressionPanels" style="flex-grow: 0; background-color: rgb(27, 27, 26); flex-shrink: 0; position: absolute; top: 16px; left: 589px; justify-content: flex-start; width: 1092px; height: 800px; align-items: stretch;">
                 <ui:VisualElement name="Tabs" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; height: 10%;" />
                 <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                    <BecomingAnArchmage.Source.Views.BindableTaskScrollView binding-items-source-path="TaskItems" binding-item-template-path="Task" scroll-deceleration-rate="0,135" elasticity="0.05" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" touch-scroll-type="Elastic"/>
+                    <BecomingAnArchmage.Source.Views.BindableTaskScrollView binding-items-source-path="TaskItems" binding-item-template-path="Task" scroll-deceleration-rate="0,135" elasticity="0.05" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" touch-scroll-type="Elastic" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="EmptySpace" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-shrink: 0;" />

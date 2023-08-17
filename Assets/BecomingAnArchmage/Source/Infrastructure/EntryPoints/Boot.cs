@@ -1,23 +1,26 @@
 using System.Collections.Generic;
-using BecomingAnArchmage.Source.Infrastructure.GameFsm;
+using BecomingAnArchmage.Source.Infrastructure.Scopes;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
 {
-    public class Boot : MonoBehaviour
+    public class Boot : IInitializable
     {
         private IReadOnlyList<IInitializableService> _services;
-        private GameStateMachine _gameStateMachine;
+        private AppLifetimeScope _appLifetimeScope;
 
         [Inject]
-        public void Construct(GameStateMachine gameStateMachine)
+        public void Construct(AppLifetimeScope appLifetimeScope)
         {
-            _gameStateMachine = gameStateMachine;
+            _appLifetimeScope = appLifetimeScope;
         }
 
-        private void Awake() => 
-            _gameStateMachine.SwitchState(GameState.Boot);
+        public void Initialize()
+        {
+            Object.DontDestroyOnLoad(_appLifetimeScope);
+        }
     }
 }
