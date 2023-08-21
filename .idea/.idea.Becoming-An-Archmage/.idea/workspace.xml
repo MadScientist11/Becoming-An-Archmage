@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e63f3288-aa80-4b50-a225-bb16183a7819" name="Changes" comment="Add UniTask package">
+    <list default="true" id="e63f3288-aa80-4b50-a225-bb16183a7819" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/ResourceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Becoming-An-Archmage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Becoming-An-Archmage/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/BecomingAnArchmage.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/BecomingAnArchmage.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/GameConstants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Gameplay/Services/PlayerLifeCycleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Gameplay/Services/PlayerLifeCycleService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/EntryPoints/Boot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/EntryPoints/Boot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Installers/AppServicesInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Installers/AppServicesInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/AssetProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/IInitializableService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/IInitializableService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/SceneLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/SceneLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Installers/MVVMSpecificsInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Installers/MVVMSpecificsInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Scopes/AppLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Scopes/AppLifetimeScope.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/AssetProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/AssetProvider.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BecomingAnArchmage/Source/Infrastructure/Services/ResourceManager.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,8 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/BindableScrollView.T.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/Uxmls/BindableListView.T.Uxml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chebanovdd.unitymvvmtoolkit@a1058b4b0d/Runtime/UITK/BindableUIElements/Uxmls/BindableListView.TItem.TCollection.Uxml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.14/Runtime/ResourceManager/AsyncOperations/AsyncOperationBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.14/Runtime/ResourceManager/AsyncOperations/AsyncOperationHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Annotations/ITickable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Annotations/InjectAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@af7bd4ecab/Runtime/Container.cs" root0="SKIP_HIGHLIGHTING" />
@@ -139,6 +140,8 @@
       <workItem from="1691833711033" duration="2771000" />
       <workItem from="1692191038905" duration="4958000" />
       <workItem from="1692273644302" duration="11218000" />
+      <workItem from="1692346392249" duration="6073000" />
+      <workItem from="1692600553321" duration="1306000" />
     </task>
     <task id="LOCAL-00001" summary="Small test">
       <option name="closed" value="true" />
@@ -164,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692281225040</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactor App StartUp">
+      <option name="closed" value="true" />
+      <created>1692295920597</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692295920597</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +201,7 @@
     <MESSAGE value="Tests" />
     <MESSAGE value="Introduce Installers, UI improvements" />
     <MESSAGE value="Add UniTask package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add UniTask package" />
+    <MESSAGE value="Refactor App StartUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor App StartUp" />
   </component>
 </project>

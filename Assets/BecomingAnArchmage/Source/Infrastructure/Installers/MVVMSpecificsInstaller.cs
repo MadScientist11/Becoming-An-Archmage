@@ -9,20 +9,13 @@ using VContainer.Unity;
 
 namespace BecomingAnArchmage.Source.Infrastructure.Installers
 {
-    public class MVVMSpecificsInstaller
+    public class MVVMSpecificsInstaller : IInstaller
     {
-        private readonly IContainerBuilder _scopeBuilder;
-
-        public MVVMSpecificsInstaller(IContainerBuilder scopeBuilder)
+        public void Install(IContainerBuilder builder)
         {
-            _scopeBuilder = scopeBuilder;
-        }
-        
-        public void RegisterMVVMSpecifics()
-        {
-            RegisterValueConverters(_scopeBuilder);
-            RegisterViewModels(_scopeBuilder);
-            RegisterCollectionItemTemplates(_scopeBuilder);
+            RegisterValueConverters(builder);
+            RegisterViewModels(builder);
+            RegisterCollectionItemTemplates(builder);
         }
 
         private void RegisterValueConverters(IContainerBuilder builder)
@@ -41,7 +34,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Installers
             builder.Register<TaskItemViewModel>(Lifetime.Singleton).AsSelf();
 
         }
-        
+
         private void RegisterCollectionItemTemplates(IContainerBuilder builder)
         {
             Dictionary<Type, object> templates =  new Dictionary<Type, object>

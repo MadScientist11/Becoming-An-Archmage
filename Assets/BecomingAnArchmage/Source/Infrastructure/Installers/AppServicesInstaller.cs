@@ -1,28 +1,22 @@
 using BecomingAnArchmage.Source.Gameplay.Services;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using VContainer;
+using VContainer.Unity;
 
 namespace BecomingAnArchmage.Source.Infrastructure.Installers
 {
-    public class AppServicesInstaller
+    public class AppServicesInstaller : IInstaller
     {
-        private readonly IContainerBuilder _scopeBuilder;
-
-        public AppServicesInstaller(IContainerBuilder scopeBuilder)
+        public void Install(IContainerBuilder builder)
         {
-            _scopeBuilder = scopeBuilder;
-        }
-        
-        public void RegisterServices()
-        {
-            _scopeBuilder.Register<ResourceManager>(Lifetime.Singleton).AsImplementedInterfaces();
-            _scopeBuilder.Register<TimeService>(Lifetime.Singleton).AsImplementedInterfaces();
-            RegisterGameplayServices();
+            builder.Register<ResourceManager>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<TimeService>(Lifetime.Singleton).AsImplementedInterfaces();
+            RegisterGameplayServices(builder);
         }
 
-        private void RegisterGameplayServices()
+        private void RegisterGameplayServices(IContainerBuilder builder)
         {
-            _scopeBuilder.Register<PlayerLifeCycleService>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<PlayerLifeCycleService>(Lifetime.Singleton).AsImplementedInterfaces();
         }
     }
 }

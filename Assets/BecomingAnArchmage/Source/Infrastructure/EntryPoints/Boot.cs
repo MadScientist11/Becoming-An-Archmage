@@ -6,6 +6,7 @@ using BecomingAnArchmage.Source.Infrastructure.Scopes;
 using BecomingAnArchmage.Source.Infrastructure.Services;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 
@@ -15,11 +16,14 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
     {
         private IReadOnlyList<IInitializableService> _services;
         private IResourceManager _resourcesManager;
+        private ISceneLoader _sceneLoader;
+        private AppLifetimeScope _appLifetimeScope;
 
         [Inject]
-        public void Construct(IReadOnlyList<IInitializableService> services, IResourceManager resourceManager)
+        public void Construct(AppLifetimeScope appLifetimeScope, IReadOnlyList<IInitializableService> services, ISceneLoader sceneLoader)
         {
-            _resourcesManager = resourceManager;
+            _appLifetimeScope = appLifetimeScope;
+            _sceneLoader = sceneLoader;
             _services = services;
         }
 
@@ -36,7 +40,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
 
         private async UniTask LoadGame()
         {
-            await _resourcesManager.LoadScene(GameConstants.AddressablesRefs.GameScene);
+            await _sceneLoader.LoadSceneInjected(GameConstants.AddressablesRefs.GameScene, LoadSceneMode.Additive, _appLifetimeScope);
         }
 
         private async UniTask LoadGameAssets()
@@ -46,15 +50,18 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
 
         private async UniTask InitializeServices()
         {
-            await UniTask.WhenAll(_services.Select(service => service.Initialize().ContinueWith(() =>
+            IEnumerable<UniTask> initializeTasks = _services.Select(async service =>
             {
+                await service.Initialize();
                 Debug.Log($"Service {service.GetType().Name} initialized.");
-            })));
+            });
+
+            await UniTask.WhenAll(initializeTasks);
         }
 
         private async UniTask ShowLoadingScreen()
         {
-            await _resourcesManager.LoadScene(GameConstants.AddressablesRefs.LoadingScreenScene);
+            //await _resourcesManager.LoadScene(GameConstants.AddressablesRefs.LoadingScreenScene);
 
             await UniTask.Yield();
         }

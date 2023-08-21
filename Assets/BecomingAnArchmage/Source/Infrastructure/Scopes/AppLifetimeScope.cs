@@ -13,10 +13,11 @@ namespace BecomingAnArchmage.Source.Infrastructure.Scopes
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Install(new AppServicesInstaller());
+            builder.Install(new MVVMSpecificsInstaller());
             builder.RegisterEntryPoint<Boot>();
 
-            new AppServicesInstaller(builder).RegisterServices();
-            new MVVMSpecificsInstaller(builder).RegisterMVVMSpecifics();
+            
             
         }
     }
