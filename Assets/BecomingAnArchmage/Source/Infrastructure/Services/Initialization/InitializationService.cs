@@ -7,17 +7,27 @@ using UnityEngine.SceneManagement;
 
 namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
 {
-    public interface IInitializationService
-    {
-        UniTask InitializeGame();
-    }
-
     public class InitializationService : IInitializationService
     {
         private readonly AppLifetimeScope _appLifetimeScope;
         private readonly IReadOnlyList<IInitializableService> _services;
         private readonly IResourceManager _resourceManager;
         private readonly ISceneLoader _sceneLoader;
+
+        private float _maxInitializationValue = 0;
+        private float _initializationProgress;
+
+        public float InitializationProgress
+        {
+            get => _initializationProgress / _maxInitializationValue;
+            private set
+            {
+                _initializationProgress = value;
+                ProgressChanged?.Invoke(InitializationProgress);
+            }
+        }
+
+        public event Action<float> ProgressChanged;
 
         public InitializationService(AppLifetimeScope appLifetimeScope, IReadOnlyList<IInitializableService> services, IResourceManager resourceManager, ISceneLoader sceneLoader)
         {
@@ -29,13 +39,19 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
 
         public async UniTask InitializeGame()
         {
+            foreach (IInitializableService service in _services)
+            {
+                _maxInitializationValue += service.Weight;
+            }
+
+            Debug.Log(_maxInitializationValue);
+
             InitializationChain initializationChain = new InitializationChain();
             initializationChain.AddInitializationStep(InitializeEssentials);
             initializationChain.AddInitializationStep(ShowLoadingScreen);
             initializationChain.AddInitializationStep(InitializeServices);
-            initializationChain.AddInitializationStep(LoadGameAssets);
             
-            await initializationChain.ExecuteInitializationAsync(new Progress<float>());
+            await initializationChain.ExecuteInitializationAsync();
         }
         
         private async UniTask InitializeEssentials()
@@ -47,13 +63,6 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
         private async UniTask ShowLoadingScreen()
         {
             await _sceneLoader.LoadSceneInjected(GameConstants.AddressablesRefs.LoadingScreenScene, LoadSceneMode.Additive, _appLifetimeScope);
-
-            await UniTask.Yield();
-        }
-
-   
-        private async UniTask LoadGameAssets()
-        {
             await UniTask.Yield();
         }
 
@@ -62,10 +71,22 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
             IEnumerable<UniTask> initializeTasks = _services.Select(async service =>
             {
                 await service.Initialize();
+                InitializationProgress = _initializationProgress + service.Weight;
                 Debug.Log($"Service {service.GetType().Name} initialized.");
             });
 
             await UniTask.WhenAll(initializeTasks);
         }
+    }
+
+    public interface IInitializationService
+    {
+        UniTask InitializeGame();
+        event Action<float> ProgressChanged;
+    }
+
+    public interface IHaveInitializationWeight
+    {
+        float Weight { get; }
     }
 }

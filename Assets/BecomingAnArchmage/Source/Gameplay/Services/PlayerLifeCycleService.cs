@@ -1,5 +1,6 @@
 using System;
 using BecomingAnArchmage.Source.Infrastructure.Services;
+using BecomingAnArchmage.Source.Infrastructure.Services.Initialization;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;
@@ -19,6 +20,7 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
     {
         private int _days;
         private int _age;
+        public float Weight => 3;
 
         public int Days
         {
@@ -47,6 +49,7 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
         private float _elapsed;
 
         private readonly ITimeService _timeService;
+        private IInitializationService _initializationService;
 
         public PlayerLifeCycleService(ITimeService timeService)
         {
@@ -55,8 +58,8 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
 
         public async UniTask Initialize()
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(Weight));
             DaysChanged += OnDaysChanged;
-            await UniTask.Delay(TimeSpan.FromSeconds(3));
         }
 
         public void Dispose()
@@ -88,5 +91,6 @@ namespace BecomingAnArchmage.Source.Gameplay.Services
                 Age = age;
             }
         }
+
     }
 }

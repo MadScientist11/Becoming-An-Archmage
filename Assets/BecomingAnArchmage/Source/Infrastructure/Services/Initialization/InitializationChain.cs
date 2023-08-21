@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 
 namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
 {
-    public class InitializationChain : IProgress<float>
+    public class InitializationChain
     {
         private readonly List<Func<UniTask>> initializationSteps = new();
         public event Action<float> ProgressUpdated; 
@@ -13,12 +13,11 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services.Initialization
             initializationSteps.Add(step);
         }
 
-        public async UniTask ExecuteInitializationAsync(IProgress<float> progress)
+        public async UniTask ExecuteInitializationAsync()
         {
             for (int i = 0; i < initializationSteps.Count; i++)
             {
                 await initializationSteps[i]();
-                progress.Report((float)(i + 1) / initializationSteps.Count);
             }
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using BecomingAnArchmage.Source.Infrastructure.Scopes;
 using BecomingAnArchmage.Source.Infrastructure.Services;
@@ -26,6 +27,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
         public async UniTask StartAsync(CancellationToken cancellation)
         {
             await _initializationService.InitializeGame();
+            await UniTask.Delay(TimeSpan.FromSeconds(3));
             await LoadGame();
         }
 
