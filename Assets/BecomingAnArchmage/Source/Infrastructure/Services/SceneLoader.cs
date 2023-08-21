@@ -10,9 +10,9 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services
 
     public class SceneLoader : ISceneLoader
     {
-        private readonly ResourceManager _resourceManager;
+        private readonly IResourceManager _resourceManager;
 
-        public SceneLoader(ResourceManager resourceManager)
+        public SceneLoader(IResourceManager resourceManager)
         {
             _resourceManager = resourceManager;
         }

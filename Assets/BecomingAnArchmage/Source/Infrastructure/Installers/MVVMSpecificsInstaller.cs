@@ -31,6 +31,8 @@ namespace BecomingAnArchmage.Source.Infrastructure.Installers
             builder.Register<ProgressionPanelsViewModel>(Lifetime.Singleton).AsSelf();
             builder.Register<MainScreenViewModel>(Lifetime.Singleton).AsSelf().As<IInitializable>();
             
+            builder.Register<LoadingScreenViewModel>(Lifetime.Singleton).AsSelf();
+            
             builder.Register<TaskItemViewModel>(Lifetime.Singleton).AsSelf();
 
         }

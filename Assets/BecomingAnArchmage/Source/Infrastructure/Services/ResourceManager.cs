@@ -62,7 +62,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Services
 
         public async UniTask<SceneInstance> LoadScene(string nextScene, LoadSceneMode loadSceneMode)
         {
-            AsyncOperationHandle<SceneInstance> asyncOperationHandle = Addressables.LoadSceneAsync(nextScene);
+            AsyncOperationHandle<SceneInstance> asyncOperationHandle = Addressables.LoadSceneAsync(nextScene, loadSceneMode);
             return await asyncOperationHandle.Task;
         }
 

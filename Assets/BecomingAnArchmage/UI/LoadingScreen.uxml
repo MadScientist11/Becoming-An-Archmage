@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/BecomingAnArchmage/UI/Common.uss?fileID=7433441132597879392&amp;guid=640ed085da43da74790c66c31554f1b4&amp;type=3#Common" />
+    <ui:VisualElement name="Background" class="default-background" style="flex-grow: 1; justify-content: flex-start; align-items: center;">
+        <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-shrink: 0; width: 500px; flex-direction: column-reverse; padding-bottom: 160px;">
+            <BecomingAnArchmage.Source.CustomBindableElements.BindableProgressBar binding-value-path="Value" value="22" title="Loading..."  style="bottom: auto; top: auto;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

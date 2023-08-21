@@ -11,6 +11,7 @@ namespace BecomingAnArchmage.Source.Infrastructure.Installers
         {
             builder.Register<ResourceManager>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<TimeService>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<SceneLoader>(Lifetime.Singleton).AsImplementedInterfaces();
             RegisterGameplayServices(builder);
         }
 

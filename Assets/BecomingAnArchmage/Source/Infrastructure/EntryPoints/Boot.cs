@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using BecomingAnArchmage.Source.Infrastructure.Scopes;
 using BecomingAnArchmage.Source.Infrastructure.Services;
+using BecomingAnArchmage.Source.Infrastructure.Services.Initialization;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,13 +15,14 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
     public class Boot : IAsyncStartable
     {
         private IReadOnlyList<IInitializableService> _services;
-        private IResourceManager _resourcesManager;
         private ISceneLoader _sceneLoader;
         private AppLifetimeScope _appLifetimeScope;
+        private IResourceManager _resourceManager;
 
         [Inject]
-        public void Construct(AppLifetimeScope appLifetimeScope, IReadOnlyList<IInitializableService> services, ISceneLoader sceneLoader)
+        public void Construct(AppLifetimeScope appLifetimeScope, IReadOnlyList<IInitializableService> services, IResourceManager resourceManager, ISceneLoader sceneLoader)
         {
+            _resourceManager = resourceManager;
             _appLifetimeScope = appLifetimeScope;
             _sceneLoader = sceneLoader;
             _services = services;
@@ -27,13 +30,28 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
-            await InitializeEssentials();
+            InitializationChain initializationChain = new InitializationChain();
+            initializationChain.AddInitializationStep(InitializeEssentials);
+            initializationChain.AddInitializationStep(ShowLoadingScreen);
+            initializationChain.AddInitializationStep(InitializeServices);
+            initializationChain.AddInitializationStep(LoadGameAssets);
+            //initializationChain.AddInitializationStep(LoadGame);
 
-            await ShowLoadingScreen();
 
-            await InitializeServices();
-            await LoadGameAssets();
-            await LoadGame();
+            await initializationChain.ExecuteInitializationAsync(new Progress<float>());
+        }
+
+        private async UniTask InitializeEssentials()
+        {
+            await _resourceManager.Initialize();
+            //addressables to load loading screen right away
+        }
+        
+        private async UniTask ShowLoadingScreen()
+        {
+            await _sceneLoader.LoadSceneInjected(GameConstants.AddressablesRefs.LoadingScreenScene, LoadSceneMode.Additive, _appLifetimeScope);
+
+            await UniTask.Yield();
         }
 
         private async UniTask LoadGame()
@@ -55,19 +73,6 @@ namespace BecomingAnArchmage.Source.Infrastructure.EntryPoints
             });
 
             await UniTask.WhenAll(initializeTasks);
-        }
-
-        private async UniTask ShowLoadingScreen()
-        {
-            //await _resourcesManager.LoadScene(GameConstants.AddressablesRefs.LoadingScreenScene);
-
-            await UniTask.Yield();
-        }
-
-        private async UniTask InitializeEssentials()
-        {
-            await _resourcesManager.Initialize();
-            //addressables to load loading screen right away
         }
     }
 }
